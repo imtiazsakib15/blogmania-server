@@ -11,4 +11,11 @@ const getAllPosts = async () => {
   return posts;
 };
 
-export const PostService = { createPost, getAllPosts };
+const getPostById = async (id: string) => {
+  const post = await Post.findById(id);
+  if (!post) throw new Error('Post not found');
+
+  return post;
+};
+
+export const PostService = { createPost, getAllPosts, getPostById };

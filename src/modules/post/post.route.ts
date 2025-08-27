@@ -13,4 +13,6 @@ router.post(
 
 router.get('/', PostController.getAllPosts);
 
+router.get('/:id', PostController.getPostById);
+
 export const PostRoute = router;
