@@ -11,4 +11,14 @@ const createPost = catchAsync(async (req, res) => {
   });
 });
 
-export const PostController = { createPost };
+const getAllPosts = catchAsync(async (req, res) => {
+  const posts = await PostService.getAllPosts();
+
+  res.status(200).json({
+    success: true,
+    message: 'Posts fetched successfully',
+    data: posts,
+  });
+});
+
+export const PostController = { createPost, getAllPosts };

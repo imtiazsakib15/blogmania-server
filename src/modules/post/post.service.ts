@@ -6,4 +6,9 @@ const createPost = async (payload: CreatePostInput) => {
   return post;
 };
 
-export const PostService = { createPost };
+const getAllPosts = async () => {
+  const posts = await Post.find().sort({ createdAt: -1 });
+  return posts;
+};
+
+export const PostService = { createPost, getAllPosts };
